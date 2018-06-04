@@ -1,9 +1,10 @@
 package com.olsoncb.equality;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /** The type User key. */
-public class UserKey {
+public class UserKey implements Serializable {
 
     private String name;
     private String userid;
@@ -14,7 +15,7 @@ public class UserKey {
    * @param name the name
    * @param userid the userid
    */
-  public UserKey(String name, String userid) {
+  UserKey(String name, String userid) {
         this.name = name;
         this.userid = userid;
     }
@@ -24,7 +25,7 @@ public class UserKey {
    *
    * @return the name
    */
-  public String getName() {
+  String getName() {
         return name;
     }
 
@@ -33,7 +34,7 @@ public class UserKey {
    *
    * @return the user id
    */
-  public String getUserID() {
+  String getUserID() {
         return userid;
     }
 
