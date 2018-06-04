@@ -1,11 +1,11 @@
 package com.olsoncb.equality;
 
 import junit.framework.TestSuite;
-import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.springframework.util.SerializationUtils.deserialize;
 import static org.springframework.util.SerializationUtils.serialize;
@@ -22,7 +22,7 @@ public class UserKeyTest extends TestSuite {
     assertThat(b1.getName(), is("Bill Smith"));
     assertThat(b2.getName(), is("Bill Smith"));
     assertThat(b3.getName(), is("Susan Smith"));
-    assertThat(b4.getName(), Matchers.nullValue());
+    assertThat(b4.getName(), nullValue());
   }
 
   @Test
@@ -30,7 +30,7 @@ public class UserKeyTest extends TestSuite {
     assertThat(b1.getUserID(), is("BSMITH"));
     assertThat(b2.getUserID(), is("BSMITH"));
     assertThat(b3.getUserID(), is("SSMITH"));
-    assertThat(b4.getUserID(), Matchers.nullValue());
+    assertThat(b4.getUserID(), nullValue());
   }
 
   @Test
@@ -38,18 +38,18 @@ public class UserKeyTest extends TestSuite {
 
     assertThat(b1, equalTo(b1) );
     assertThat(b1, equalTo(b2) );
-    assertThat(b1, Matchers.not(equalTo(b3)));
-    assertThat(b1, Matchers.notNullValue() );
-    assertThat(b1, Matchers.not(equalTo("Some String")));
-    assertThat(b4, Matchers.not(equalTo(b1)));
+    assertThat(b1, not(equalTo(b3)));
+    assertThat(b1, notNullValue() );
+    assertThat(b1, not(equalTo("Some String")));
+    assertThat(b4, not(equalTo(b1)));
   }
 
   @Test
   public void hashCodeTest() {
     assertThat(b1.hashCode(), equalTo(b1.hashCode()) );
     assertThat(b1.hashCode(), equalTo(b2.hashCode()) );
-    assertThat(b1.hashCode(), Matchers.not(equalTo(b3.hashCode())));
-    assertThat(b4.hashCode(), Matchers.not(equalTo(b1.hashCode())));
+    assertThat(b1.hashCode(), not(equalTo(b3.hashCode())));
+    assertThat(b4.hashCode(), not(equalTo(b1.hashCode())));
   }
 
   @Test
